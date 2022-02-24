@@ -25,7 +25,7 @@ export default function Nfts() {
   const nftModule = useMemo(() => {
     if (!provider) return;
     const sdk = new ThirdwebSDK(provider?.getSigner());
-    return sdk.getNFTModule('0x50CFF79C0402f057B565C6739acf0beAdE5CA256');
+    return sdk.getNFTModule(process.env.NEXT_PUBLIC_MODULE_ADDRESS || '');
   }, [provider]);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function Nfts() {
   const marketplaceModule = useMemo(() => {
     if (!provider) return;
     const sdk = new ThirdwebSDK(provider?.getSigner());
-    return sdk.getMarketplaceModule('0x5dD723875d65CB3DE6D92Aa1269a2054814951ef');
+    return sdk.getMarketplaceModule(process.env.NEXT_PUBLIC_MARKET_ADDRESS || '');
   }, [provider]);
 
   useEffect(() => {
